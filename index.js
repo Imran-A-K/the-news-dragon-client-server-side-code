@@ -39,11 +39,11 @@ app.get('/news/:id' , (req,res) =>{
 app.get('/categories/:id', (req,res) => {
     const id = parseInt(req.params.id);
     // console.log(id)
-    if(id == 0){
+    if(id === 0){
         res.send(news);
     }
     else{
-        const selectedNews = news.find( n => parseInt(n._id) === id);
+        const selectedNews = news.find( n => parseInt(n.category_id) === id);
     res.send(selectedNews);
     }
 })
