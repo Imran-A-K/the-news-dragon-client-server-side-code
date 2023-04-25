@@ -31,8 +31,8 @@ app.get('/news/:id' , (req,res) =>{
 //         res.send(news);
 //     }
 //     else{
-//         const selectedNews = news.find( n => n._id === id);
-//     res.send(selectedNews);
+//         const categoryNews = news.filter( n => n._id === id);
+//     res.send(categoryNews);
 //     }
 // })
 
@@ -43,10 +43,11 @@ app.get('/categories/:id', (req,res) => {
         res.send(news);
     }
     else{
-        const selectedNews = news.find( n => parseInt(n.category_id) === id);
-    res.send(selectedNews);
+        const categoryNews = news.filter( n => parseInt(n.category_id) === id);
+    res.send(categoryNews);
     }
 })
+
 
 app.listen(port, () =>{
     console.log(`Dragon API is running on port: ${port}`)
